@@ -1,0 +1,31 @@
+spring:
+  config.import: "optional:configserver:"
+  application:
+    name: apigateway
+  cloud:
+    gateway:
+      routes:
+        - id: usuarios
+          uri: lb://usuarios
+          predicates:
+            - Path=/**
+
+        - id: logica-negocio
+          uri: lb://Logica-Negocio
+          predicates:
+            - Path=/**
+      globalcors:
+        cors-configurations:
+          '[/**]': # Puedes ajustar esto para que coincida con tus rutas específicas
+            allowedOrigins: "*"
+            allowedMethods:
+              - GET
+              - POST
+            allowedHeaders:
+              - "*"
+            maxAge: 3600
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_SERVER:http://localhost:8761/eureka}

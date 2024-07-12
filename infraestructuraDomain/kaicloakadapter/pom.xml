@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+        
+        <artifactId>kaicloakadapter</artifactId>
+	<version>v1</version>
+	<name>kaicloakadapter</name>
+	<description>adaptador kaicoackadapter</description>
+	
+	 <parent>
+        <groupId>juliaosystem.infraestructuradomain</groupId>
+        <artifactId>infraestructuradomain</artifactId>
+         <version>v1</version>
+    </parent>
+
+	
+	
+	<dependencies>
+ 
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+  
+        </dependency>   
+                          
+      <dependency>
+    <groupId>com.auth0</groupId>
+    <artifactId>jwks-rsa</artifactId>
+    <version>0.21.1</version>
+</dependency>
+		<dependency>
+    <groupId>com.auth0</groupId>
+    <artifactId>java-jwt</artifactId>
+    <version>4.0.0</version>
+</dependency>
+
+	</dependencies>
+
+
+	 <build>
+        <plugins>   
+            <!--Need on each project for build and executable jar or war and 
+            construct a manifest-->      
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>     
+                <version>${spring-boot-maven-plugin.version}</version>      
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>         
+        </plugins>
+    </build>
+
+</project>
