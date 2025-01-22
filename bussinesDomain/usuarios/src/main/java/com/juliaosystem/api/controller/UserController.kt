@@ -22,7 +22,7 @@ import java.util.*
 class UserController(
     private val userService: UserService,
     private val abtractError: AbtractError
-) : CrudController<RegisterUserDTO, RegisterUserDTO> {
+) : CrudController<RegisterUserDTO, RegisterUserDTO, _root_ide_package_.com.common.lib.infraestructure.entitis.User, UUID> {
 
 
 
@@ -78,6 +78,7 @@ class UserController(
     @Operation(summary = "add", description = "Permite agregar un usuario")
     override fun add(
         entidad: RegisterUserDTO,
+        id: UUID?,
         ip: String,
         dominio: String,
         usuario: String,

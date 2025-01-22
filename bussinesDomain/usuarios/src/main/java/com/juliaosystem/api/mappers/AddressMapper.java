@@ -1,8 +1,9 @@
 package com.juliaosystem.api.mappers;
 
 import com.common.lib.api.dtos.user.AddresDTO;
-import com.juliaosystem.infrastructure.entitis.Address;
-import com.juliaosystem.infrastructure.entitis.Country;
+
+import com.common.lib.infraestructure.entitis.Address;
+import com.common.lib.infraestructure.entitis.Country;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Named;

@@ -1,7 +1,8 @@
 package com.juliaosystem.api.mappers;
 
+
 import com.common.lib.api.dtos.user.UserRolDTO;
-import com.juliaosystem.infrastructure.entitis.UserRol;
+import com.common.lib.infraestructure.entitis.UserRol;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

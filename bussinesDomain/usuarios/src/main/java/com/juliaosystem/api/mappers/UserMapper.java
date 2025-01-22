@@ -2,7 +2,7 @@ package com.juliaosystem.api.mappers;
 
 import com.common.lib.api.dtos.request.RegisterUserDTO;
 import com.common.lib.api.dtos.user.DatesUserDTO;
-import com.juliaosystem.infrastructure.entitis.User;
+import com.common.lib.infraestructure.entitis.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

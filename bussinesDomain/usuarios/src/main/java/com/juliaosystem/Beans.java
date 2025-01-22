@@ -10,7 +10,6 @@ import com.common.lib.utils.errors.AbtractError;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @Configuration
 public class Beans<E> {

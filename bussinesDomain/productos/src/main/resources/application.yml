@@ -1,0 +1,126 @@
+server:
+  port: 0
+  tomcat:
+    max-http-post-size: 70MB
+
+spring:
+  application:
+    name: productos
+  profiles:
+    active: local
+    group:
+      local:
+      dev:
+      qa:
+      prod:
+
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 60MB
+      max-request-size: 60MB
+  mvc:
+    converters:
+      preferred-json-mapper: gsons
+  datasource:
+    url: jdbc:postgresql://${DB_HOST}:${DB_PORT}/${DB_DATABASE}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    driverClassName: org.postgresql.Driver
+    hikari:
+      leak-detection-threshold: 240000
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  cloud:
+    config:
+      name: config-client
+      profile: development
+      username: admin
+      password: 0d068B4290
+      retry:
+        max-attempts: 1
+        max-interval: 1000
+      failFast: true
+      discovery:
+        enabled: true
+        service-id: config-server
+    import: "configserver:"
+
+
+
+springdoc:
+  swagger-ui:
+    path: /documentacion
+
+management:
+  metrics:
+    distribution:
+      percentiles-histogram:
+        http:
+          server:
+            requests: true
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
+        web:
+          cors: DEBUG
+      hibernate:
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_SERVER:http://localhost:8761/eureka}
+
+---
+spring:
+  cloud:
+    config:
+      activate:
+        on-profile: local
+      discovery:
+        enabled: false
+      import-check.enabled: false
+    eureka:
+      client:
+        enabled: false
+
+server:
+  port: 1212
+
+---
+spring:
+  cloud:
+    config:
+      activate:
+        on-profile: dev
+      discovery:
+        enabled: true
+      enabled: true
+
+---
+
+spring:
+  cloud:
+    config:
+      activate:
+        on-profile: prod
+      discovery:
+        enabled: true
+      enabled: true

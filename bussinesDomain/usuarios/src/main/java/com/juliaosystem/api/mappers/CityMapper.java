@@ -2,8 +2,9 @@ package com.juliaosystem.api.mappers;
 
 import com.common.lib.api.dtos.user.CityDTO;
 
-import com.juliaosystem.infrastructure.entitis.City;
-import com.juliaosystem.infrastructure.entitis.Country;
+
+import com.common.lib.infraestructure.entitis.City;
+import com.common.lib.infraestructure.entitis.Country;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
